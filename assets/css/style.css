@@ -1,0 +1,21 @@
+#giftastic {
+    padding:25px;
+}
+
+#giftastic .container .menu {
+    padding: 10px;
+    background: #fff;
+    border: none;
+}
+#giftastic .container .menu .logo {
+    font-size:50px;
+    font-family: 'Kalam', cursive;
+    color:#5F9EA0;
+    font-weight: bold;
+}
+
+#giftastic .container .menu form .menu-container {
+    width: 500px;
+}
+
+
