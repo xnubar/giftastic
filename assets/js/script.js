@@ -1,4 +1,12 @@
 var arr = ["dog", "cat", "frog", "turtle", "goldfish", "bird"];
+var failedPorcess = {
+    text: "Your input already exists in container, try another...",
+    img: "./assets/imgs/sad.png"
+}
+var emptyString = {
+    text: "Input can't be empty!",
+    img: "./assets/imgs/angry.jpg"
+}
 
 
 
@@ -26,6 +34,16 @@ function addNewAnimal(animalName) {
         return true;
     }
 }
+
+function showPopup(text, img) {
+    $(".text").html(text);
+    $(".result-img").attr("src", img);
+    $(".overlay").css({
+        "opacity": 1,
+        "visibility": "visible"
+    });
+}
+
 
 function loadGifs(images) {
     $(".gif-images-container").empty();
@@ -89,19 +107,26 @@ $(document).on("click", ".gif-button", function () {
 $("form").on("submit", function (event) {
     event.preventDefault();
     let newAnimal = $("#add-animal").val();
-
-    if (newAnimal.length > 1) {
+    if (newAnimal.length > 0) {
         let animalIsAdded = addNewAnimal(newAnimal);
         if (animalIsAdded) {
             $("#add-animal").val("");
             load();
         } else {
-            //animal already exist in the list => popup
+            showPopup(failedPorcess.text, failedPorcess.img);
+
         }
     } else {
-        // you can't add  empty string => popup
+        showPopup(emptyString.text, emptyString.img);
     }
 
+})
+
+$(document).on("click", ".close", function () {
+    $(".overlay").css({
+        "visibility": "hidden",
+        "opacity": 0
+    })
 })
 
 
