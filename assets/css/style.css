@@ -25,14 +25,32 @@ hr {
     margin-bottom: -2px !important;
 }
 
+#giftastic .container .gif-buttons-container {
+    margin:20px 0;
+    border: 1px solid rgb(143, 139, 139);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#giftastic .container .gif-images-container {
+    padding: 20px;
+} 
 #giftastic .container .gif-buttons-container .gif-button {
     border-radius: 5px;
     border:none;
     box-shadow: none;
     color:#fff;
     font-weight: bold;
-    padding: 5px;
+    padding: 5px 10px;
     background:#5F9EA0;
     margin:0 3px;
 }
 
+#giftastic .container .gif-images-container .gif-image {
+    margin: 20px 0;
+}
+
+
+#giftastic .container .gif-images-container .gif-image .gif-image-title {
+    font-weight: bold;
+}
