@@ -22,19 +22,12 @@ function addNewAnimal(animalName) {
     if (arr.indexOf(animalName.toLowerCase()) != -1) {
         return false;
     } else {
-        arr.add(animalName);
+        arr.push(animalName);
         return true;
     }
 }
 
 function loadGifs(images) {
-    /*  <div class="gif-image col-lg-4 col-md-4 col-sm-6 col-xs-6">
-    <h4 class="gif-image-title">Rating</h4>
-    <img src="https://media2.giphy.com/media/1oJlVZu4CDxIKClvbk/giphy.webp" alt=""
-    class="gif-img img-thumbnail">
-    </div >
-    */
-
     $(".gif-images-container").empty();
 
     images.forEach(function (value, index) {
@@ -93,13 +86,14 @@ $(document).on("click", ".gif-button", function () {
 
 })
 
-$("form").on("submit", function () {
-
+$("form").on("submit", function (event) {
+    event.preventDefault();
     let newAnimal = $("#add-animal").val();
 
     if (newAnimal.length > 1) {
-        let animalIsAdded = addNewAnimal();
+        let animalIsAdded = addNewAnimal(newAnimal);
         if (animalIsAdded) {
+            $("#add-animal").val("");
             load();
         } else {
             //animal already exist in the list => popup
@@ -112,7 +106,7 @@ $("form").on("submit", function () {
 
 
 $(document).on("click", ".gif-img", function () {
-    let original=$(this).attr("src");
-    $(this).attr("src",$(this).data("url"));
-    $(this).data("url",original);
+    let original = $(this).attr("src");
+    $(this).attr("src", $(this).data("url"));
+    $(this).data("url", original);
 })
