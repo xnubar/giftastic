@@ -1,0 +1,13 @@
+#giftastic .container  .giftastic-container {
+    padding: 50px;
+}
+
+
+#giftastic .container  .giftastic-container .logo {
+    text-align: center;
+    font-size:150px;
+    font-family: 'Kalam', cursive;
+    color:#5F9EA0;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
