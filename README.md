@@ -14,5 +14,18 @@ Initally, menu will be displayed, and you should choose one of the category: ani
  
  ![alt text](assets/imgs/selectedCategory.png) 
  
+ You can also add your own options:
+ 
+ 
+ ![alt text](assets/imgs/newItem.png) 
+ 
+ 
+ ![alt text](assets/imgs/newItemGifs.png) 
+ 
+ 
+ When the user clicks one of the still GIPHY images, the gif should animate. If the user clicks the gif again, it should stop playing.
+ 
  
  If you want to go back to categories part you must click on Back.
+ 
+ 
