@@ -101,12 +101,12 @@ var api_key = "1ERwBbvHtfZhf2nkn1WwIjavf2AXdQn2";
 var limit = 10;
 $(document).on("click", ".gif-button", function () {
 
-    let animal = $(this).data('name');
+    let categoryName = $(this).data('name');
     $.ajax({
         url: queryUrl,
         method: 'GET',
         data: {
-            q: animal,
+            q: categoryName,
             api_key,
             limit
         }
