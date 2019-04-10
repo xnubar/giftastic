@@ -61,7 +61,13 @@ hr {
     text-align: center;
   }
 
-  .overlay {
+ 
+  #giftastic {
+    padding:25px;
+}
+
+
+.overlay {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -114,8 +120,9 @@ hr {
     width: 70%;
   }
 }
- 
-#giftastic .container .overlay .popup .text {
+
+
+.overlay .popup .text {
     margin:10px auto;
     font-size:25px;
     font-family: 'Old Standard TT', serif;
@@ -123,9 +130,49 @@ hr {
     text-align: center;
     
 }
-#giftastic .container .overlay .popup .result-img {
+.overlay .popup .result-img {
     margin: 0 auto;
     height: 100px;
     width: 100px;
     display: block;
+}
+
+#giftastic .container  .giftastic-container {
+  padding: 50px;
+}
+ #giftastic .home-container {
+   display: none;
+ }
+
+#giftastic .container  .giftastic-container .logo {
+  text-align: center;
+  font-size:150px;
+  font-family: 'Kalam', cursive;
+  color:#5F9EA0;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+
+#giftastic .container .choices {
+  text-align: center;
+  margin:10px auto;
+  display: block;
+  border: 1px solid #5F9EA0;
+  border-radius: 3px;
+  padding: 3px;
+}
+
+
+
+#giftastic .container #go {
+  background: #5F9EA0;
+  color:#fff;
+  padding: 5px;
+  display: block;
+  margin: 20px auto;
+  font-family: 'Old Standard TT', serif;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
 }

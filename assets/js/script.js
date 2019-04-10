@@ -1,4 +1,8 @@
-var arr = ["dog", "cat", "frog", "turtle", "goldfish", "bird"];
+var arr = [
+    { "animal": ["dog", "cat", "frog", "turtle", "goldfish", "bird"] },
+    { "film": ["memento", "coco"] },
+    { "series": ["breaking bad", "sherlock holmes", "friends", "stranger things", "the 100", "black mirror"] }
+];
 var failedPorcess = {
     text: "Your input already exists in container, try another...",
     img: "./assets/imgs/sad.png"
@@ -8,13 +12,21 @@ var emptyString = {
     img: "./assets/imgs/angry.jpg"
 }
 
+var selectCategory = {
+    text: "You must choose category!",
+    img: "./assets/imgs/angry.jpg"
+}
+
+var category;
+
+var arrOfCategories = [];
 
 
 //                  FUNCTIONS
 function load() {
     $(".gif-buttons-container").empty();
 
-    arr.forEach(function (value, index) {
+    arrOfCategories.forEach(function (value, index) {
         let btn = $("<button>");
         $(btn).addClass("gif-button");
         $(btn).html
@@ -27,10 +39,10 @@ function load() {
 }
 
 function addNewAnimal(animalName) {
-    if (arr.indexOf(animalName.toLowerCase()) != -1) {
+    if (arrOfCategories.indexOf(animalName.toLowerCase()) != -1) {
         return false;
     } else {
-        arr.push(animalName);
+        arrOfCategories.push(animalName);
         return true;
     }
 }
@@ -103,14 +115,40 @@ $(document).on("click", ".gif-button", function () {
     })
 
 })
+$(document).on("change", ".choices", function () {
+    category = $(this).val();
+})
+
+
+$(document).on("click", "#go", function () {
+    if ($(".choices").find(":selected").text().length > 0) {
+        for (let i = 0; i < arr.length; i++) {
+            for(let j in arr[i]){
+                if(j===category){
+                    arrOfCategories=[];
+                    arr[i][j].forEach(function(value,index){
+                        arrOfCategories.push(value);
+                    })
+                    $("#add-sth-new").attr("placeholder", "Add "+category);
+                    $(".index-container").hide();
+                    $(".home-container").show();
+                    load();
+                }
+            }
+        }
+    } else {
+        showPopup(selectCategory.text, selectCategory.img);
+    }
+})
+
 
 $("form").on("submit", function (event) {
     event.preventDefault();
-    let newAnimal = $("#add-animal").val();
+    let newAnimal = $("#add-sth-new").val();
     if (newAnimal.length > 0) {
         let animalIsAdded = addNewAnimal(newAnimal);
         if (animalIsAdded) {
-            $("#add-animal").val("");
+            $("#add-sth-new").val("");
             load();
         } else {
             showPopup(failedPorcess.text, failedPorcess.img);
