@@ -9,7 +9,7 @@ Initally, menu will be displayed, and you should choose one of the category: ani
  
  ![alt text](assets/imgs/index.png) 
  
- When you click one of these options gifs related to the selected option will shown.\
+ When you click one of these options gifs related to the selected option will shown.
  
  
  ![alt text](assets/imgs/selectedCategory.png) 
